@@ -1,101 +1,101 @@
-2014-02-05T23:14:17.498046+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 47, in _setup
-2014-02-05T23:14:17.498046+00:00 app[web.1]:     % (desc, ENVIRONMENT_VARIABLE))
-2014-02-05T23:14:17.498458+00:00 app[web.1]: Traceback (most recent call last):
-2014-02-05T23:14:17.498046+00:00 app[web.1]:     self._setup(name)
-2014-02-05T23:14:17.498458+00:00 app[web.1]: ImproperlyConfigured: Requested setting DEBUG, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
-2014-02-05T23:14:17.498618+00:00 app[web.1]:     from django.core.handlers import base
-2014-02-05T23:14:17.498940+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py", line 12, in <module>
-2014-02-05T23:14:17.498940+00:00 app[web.1]:     from django.db import connections, transaction
-2014-02-05T23:14:17.498458+00:00 app[web.1]:     self.callable = self.load()
-2014-02-05T23:14:17.498458+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
-2014-02-05T23:14:17.498458+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
-2014-02-05T23:14:17.498618+00:00 app[web.1]:     return util.import_app(self.app_uri)
-2014-02-05T23:14:17.498458+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
-2014-02-05T23:14:17.498618+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
-2014-02-05T23:14:17.498618+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/wsgi.py", line 11, in <module>
-2014-02-05T23:14:17.498940+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/db/__init__.py", line 83, in <module>
-2014-02-05T23:14:17.498618+00:00 app[web.1]:   File "/app/eventex/wsgi.py", line 2, in <module>
-2014-02-05T23:14:17.498618+00:00 app[web.1]:     from django.core.wsgi import get_wsgi_application
-2014-02-05T23:14:17.498618+00:00 app[web.1]:     from django.core.handlers.wsgi import WSGIHandler
-2014-02-05T23:14:17.498618+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/wsgi.py", line 1, in <module>
-2014-02-05T23:14:17.498618+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/util.py", line 354, in import_app
-2014-02-05T23:14:17.498940+00:00 app[web.1]:     signals.request_started.connect(reset_queries)
-2014-02-05T23:14:17.499374+00:00 app[web.1]: 2014-02-05 23:14:17 [7] [INFO] Worker exiting (pid: 7)
-2014-02-05T23:14:17.673594+00:00 app[web.1]: 2014-02-05 23:14:17 [2] [INFO] Reason: Worker failed to boot.
-2014-02-05T23:14:17.673594+00:00 app[web.1]: 2014-02-05 23:14:17 [2] [INFO] Shutting down: Master
-2014-02-05T23:14:19.244796+00:00 heroku[web.1]: Process exited with status 3
-2014-02-05T23:14:19.259475+00:00 heroku[web.1]: State changed from up to crashed
-2014-02-05T23:14:19.747622+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path=/ host=dyesten-wttd.herokuapp.com request_id=f3cc480b-72a8-4cbe-9996-9a97dc50fc6d fwd="179.236.83.167" dyno= connect= service= status=503 bytes=
-2014-02-05T23:24:56.097142+00:00 heroku[web.1]: State changed from crashed to starting
-2014-02-05T23:25:02.088565+00:00 heroku[web.1]: Starting process with command `gunicorn eventex.wsgi`
-2014-02-05T23:25:03.715200+00:00 app[web.1]: 2014-02-05 23:25:03 [2] [INFO] Listening at: http://0.0.0.0:34166 (2)
-2014-02-05T23:25:03.710845+00:00 app[web.1]: 2014-02-05 23:25:03 [2] [INFO] Starting gunicorn 18.0
-2014-02-05T23:25:03.715200+00:00 app[web.1]: 2014-02-05 23:25:03 [2] [INFO] Using worker: sync
-2014-02-05T23:25:03.724063+00:00 app[web.1]: 2014-02-05 23:25:03 [7] [INFO] Booting worker with pid: 7
-2014-02-05T23:25:03.827929+00:00 app[web.1]: 2014-02-05 23:25:03 [7] [ERROR] Exception in worker process:
-2014-02-05T23:25:03.827929+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
-2014-02-05T23:25:03.827929+00:00 app[web.1]: Traceback (most recent call last):
-2014-02-05T23:25:03.827929+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
-2014-02-05T23:25:03.827929+00:00 app[web.1]:     worker.init_process()
-2014-02-05T23:25:03.827929+00:00 app[web.1]:     self.callable = self.load()
-2014-02-05T23:25:03.827929+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
-2014-02-05T23:25:03.828354+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
-2014-02-05T23:25:03.827929+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
-2014-02-05T23:25:03.828354+00:00 app[web.1]:     __import__(module)
-2014-02-05T23:25:03.827929+00:00 app[web.1]:     return self.load_wsgiapp()
-2014-02-05T23:25:03.828354+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/util.py", line 354, in import_app
-2014-02-05T23:25:03.827929+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
-2014-02-05T23:25:03.828354+00:00 app[web.1]:     return util.import_app(self.app_uri)
-2014-02-05T23:25:03.828354+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/wsgi.py", line 1, in <module>
-2014-02-05T23:25:03.828354+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/wsgi.py", line 11, in <module>
-2014-02-05T23:25:03.828718+00:00 app[web.1]:     from django.db import connections, transaction
-2014-02-05T23:25:03.828354+00:00 app[web.1]:   File "/app/eventex/wsgi.py", line 2, in <module>
-2014-02-05T23:25:03.828718+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/db/__init__.py", line 83, in <module>
-2014-02-05T23:25:03.828718+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 47, in _setup
-2014-02-05T23:25:03.828354+00:00 app[web.1]:     from django.core.handlers import base
-2014-02-05T23:25:03.828718+00:00 app[web.1]:     % (desc, ENVIRONMENT_VARIABLE))
-2014-02-05T23:25:03.828718+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py", line 12, in <module>
-2014-02-05T23:25:03.829635+00:00 app[web.1]:     worker.init_process()
-2014-02-05T23:25:03.828718+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/dispatch/dispatcher.py", line 88, in connect
-2014-02-05T23:25:03.828718+00:00 app[web.1]:     signals.request_started.connect(reset_queries)
-2014-02-05T23:25:03.828718+00:00 app[web.1]:     self._setup(name)
-2014-02-05T23:25:03.828718+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 54, in __getattr__
-2014-02-05T23:25:03.829635+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
-2014-02-05T23:25:03.829635+00:00 app[web.1]: ImproperlyConfigured: Requested setting DEBUG, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
-2014-02-05T23:25:03.829635+00:00 app[web.1]:     self.callable = self.load()
-2014-02-05T23:25:03.829635+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
-2014-02-05T23:25:03.829635+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
-2014-02-05T23:25:03.829635+00:00 app[web.1]:     return self.load_wsgiapp()
-2014-02-05T23:25:03.829635+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
-2014-02-05T23:25:03.829635+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
-2014-02-05T23:25:03.828718+00:00 app[web.1]:     if settings.DEBUG:
-2014-02-05T23:25:03.829635+00:00 app[web.1]: Traceback (most recent call last):
-2014-02-05T23:25:03.828354+00:00 app[web.1]:     from django.core.wsgi import get_wsgi_application
-2014-02-05T23:25:03.828354+00:00 app[web.1]:     from django.core.handlers.wsgi import WSGIHandler
-2014-02-05T23:25:03.829979+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
-2014-02-05T23:25:03.829979+00:00 app[web.1]:     return util.import_app(self.app_uri)
-2014-02-05T23:25:03.829979+00:00 app[web.1]:     __import__(module)
-2014-02-05T23:25:03.829979+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/util.py", line 354, in import_app
-2014-02-05T23:25:03.829979+00:00 app[web.1]:     from django.core.wsgi import get_wsgi_application
-2014-02-05T23:25:03.829979+00:00 app[web.1]:   File "/app/eventex/wsgi.py", line 2, in <module>
-2014-02-05T23:25:03.829979+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/wsgi.py", line 1, in <module>
-2014-02-05T23:25:03.829979+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/wsgi.py", line 11, in <module>
-2014-02-05T23:25:03.829979+00:00 app[web.1]:     from django.core.handlers.wsgi import WSGIHandler
-2014-02-05T23:25:03.830608+00:00 app[web.1]:     signals.request_started.connect(reset_queries)
-2014-02-05T23:25:03.830608+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/dispatch/dispatcher.py", line 88, in connect
-2014-02-05T23:25:03.829979+00:00 app[web.1]:     from django.core.handlers import base
-2014-02-05T23:25:03.830608+00:00 app[web.1]:     if settings.DEBUG:
-2014-02-05T23:25:03.830608+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py", line 12, in <module>
-2014-02-05T23:25:03.830608+00:00 app[web.1]:     from django.db import connections, transaction
-2014-02-05T23:25:03.830608+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/db/__init__.py", line 83, in <module>
-2014-02-05T23:25:03.830608+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 54, in __getattr__
-2014-02-05T23:25:03.830608+00:00 app[web.1]:     self._setup(name)
-2014-02-05T23:25:03.830608+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 47, in _setup
-2014-02-05T23:25:03.830608+00:00 app[web.1]:     % (desc, ENVIRONMENT_VARIABLE))
-2014-02-05T23:25:03.830961+00:00 app[web.1]: ImproperlyConfigured: Requested setting DEBUG, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
-2014-02-05T23:25:03.830961+00:00 app[web.1]: 2014-02-05 23:25:03 [7] [INFO] Worker exiting (pid: 7)
-2014-02-05T23:25:03.970134+00:00 app[web.1]: 2014-02-05 23:25:03 [2] [INFO] Shutting down: Master
-2014-02-05T23:25:03.970716+00:00 app[web.1]: 2014-02-05 23:25:03 [2] [INFO] Reason: Worker failed to boot.
-2014-02-05T23:25:05.310210+00:00 heroku[web.1]: State changed from starting to crashed
-2014-02-05T23:25:05.299520+00:00 heroku[web.1]: Process exited with status 3
-2014-02-05T23:27:13.935972+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path=/ host=dyesten-wttd.herokuapp.com request_id=27091779-4275-4755-8a82-2aff0abb01b1 fwd="179.236.83.167" dyno= connect= service= status=503 bytes=
+2014-02-05T23:37:32.250052+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/dispatch/dispatcher.py", line 88, in connect
+2014-02-05T23:37:32.369949+00:00 app[web.1]: 2014-02-05 23:37:32 [2] [INFO] Reason: Worker failed to boot.
+2014-02-05T23:37:32.250052+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/db/__init__.py", line 83, in <module>
+2014-02-05T23:37:32.250052+00:00 app[web.1]:     from django.db import connections, transaction
+2014-02-05T23:37:32.250052+00:00 app[web.1]:     signals.request_started.connect(reset_queries)
+2014-02-05T23:37:32.249689+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/util.py", line 354, in import_app
+2014-02-05T23:37:32.249689+00:00 app[web.1]:     from django.core.handlers import base
+2014-02-05T23:37:32.250052+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py", line 12, in <module>
+2014-02-05T23:37:32.249514+00:00 app[web.1]:     worker.init_process()
+2014-02-05T23:37:32.249514+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
+2014-02-05T23:37:32.250235+00:00 app[web.1]: 2014-02-05 23:37:32 [7] [INFO] Worker exiting (pid: 7)
+2014-02-05T23:37:32.249689+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/wsgi.py", line 1, in <module>
+2014-02-05T23:37:32.250052+00:00 app[web.1]:     self._setup(name)
+2014-02-05T23:37:32.250052+00:00 app[web.1]:     % (desc, ENVIRONMENT_VARIABLE))
+2014-02-05T23:37:32.250052+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 47, in _setup
+2014-02-05T23:37:32.250235+00:00 app[web.1]: ImproperlyConfigured: Requested setting DEBUG, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
+2014-02-05T23:37:32.249514+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
+2014-02-05T23:37:32.249514+00:00 app[web.1]:     self.callable = self.load()
+2014-02-05T23:37:32.250052+00:00 app[web.1]:     if settings.DEBUG:
+2014-02-05T23:37:32.249689+00:00 app[web.1]:     return util.import_app(self.app_uri)
+2014-02-05T23:37:32.249514+00:00 app[web.1]:     return self.load_wsgiapp()
+2014-02-05T23:37:32.249689+00:00 app[web.1]:     __import__(module)
+2014-02-05T23:37:32.249689+00:00 app[web.1]:   File "/app/eventex/wsgi.py", line 2, in <module>
+2014-02-05T23:37:32.249689+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/wsgi.py", line 11, in <module>
+2014-02-05T23:37:32.249689+00:00 app[web.1]:     from django.core.handlers.wsgi import WSGIHandler
+2014-02-05T23:37:32.250052+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 54, in __getattr__
+2014-02-05T23:37:33.734096+00:00 heroku[web.1]: State changed from starting to crashed
+2014-02-05T23:37:33.735207+00:00 heroku[web.1]: State changed from crashed to starting
+2014-02-05T23:37:33.721364+00:00 heroku[web.1]: Process exited with status 3
+2014-02-05T23:37:39.299870+00:00 heroku[web.1]: Starting process with command `gunicorn eventex.wsgi`
+2014-02-05T23:37:41.943044+00:00 app[web.1]: 2014-02-05 23:37:41 [2] [INFO] Starting gunicorn 18.0
+2014-02-05T23:37:41.944379+00:00 app[web.1]: 2014-02-05 23:37:41 [2] [INFO] Listening at: http://0.0.0.0:7473 (2)
+2014-02-05T23:37:41.946141+00:00 app[web.1]: 2014-02-05 23:37:41 [2] [INFO] Using worker: sync
+2014-02-05T23:37:41.977529+00:00 app[web.1]: 2014-02-05 23:37:41 [7] [INFO] Booting worker with pid: 7
+2014-02-05T23:37:42.139818+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
+2014-02-05T23:37:42.139818+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
+2014-02-05T23:37:42.139818+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
+2014-02-05T23:37:42.139818+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
+2014-02-05T23:37:42.139818+00:00 app[web.1]:     worker.init_process()
+2014-02-05T23:37:42.139818+00:00 app[web.1]: Traceback (most recent call last):
+2014-02-05T23:37:42.140186+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
+2014-02-05T23:37:42.140186+00:00 app[web.1]:     return util.import_app(self.app_uri)
+2014-02-05T23:37:42.139818+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
+2014-02-05T23:37:42.139818+00:00 app[web.1]:     return self.load_wsgiapp()
+2014-02-05T23:37:42.139818+00:00 app[web.1]: 2014-02-05 23:37:42 [7] [ERROR] Exception in worker process:
+2014-02-05T23:37:42.140186+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/util.py", line 354, in import_app
+2014-02-05T23:37:42.140186+00:00 app[web.1]:     from django.core.wsgi import get_wsgi_application
+2014-02-05T23:37:42.140186+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/wsgi.py", line 1, in <module>
+2014-02-05T23:37:42.140186+00:00 app[web.1]:     from django.core.handlers.wsgi import WSGIHandler
+2014-02-05T23:37:42.140186+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/wsgi.py", line 11, in <module>
+2014-02-05T23:37:42.140186+00:00 app[web.1]:     from django.core.handlers import base
+2014-02-05T23:37:42.139818+00:00 app[web.1]:     self.callable = self.load()
+2014-02-05T23:37:42.140379+00:00 app[web.1]:     from django.db import connections, transaction
+2014-02-05T23:37:42.140379+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/db/__init__.py", line 83, in <module>
+2014-02-05T23:37:42.140379+00:00 app[web.1]:     signals.request_started.connect(reset_queries)
+2014-02-05T23:37:42.140379+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/dispatch/dispatcher.py", line 88, in connect
+2014-02-05T23:37:42.140186+00:00 app[web.1]:     __import__(module)
+2014-02-05T23:37:42.140379+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 54, in __getattr__
+2014-02-05T23:37:42.140379+00:00 app[web.1]:     self._setup(name)
+2014-02-05T23:37:42.140379+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 47, in _setup
+2014-02-05T23:37:42.140379+00:00 app[web.1]:     % (desc, ENVIRONMENT_VARIABLE))
+2014-02-05T23:37:42.141064+00:00 app[web.1]: ImproperlyConfigured: Requested setting DEBUG, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
+2014-02-05T23:37:42.141064+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/arbiter.py", line 495, in spawn_worker
+2014-02-05T23:37:42.140379+00:00 app[web.1]:     if settings.DEBUG:
+2014-02-05T23:37:42.140186+00:00 app[web.1]:   File "/app/eventex/wsgi.py", line 2, in <module>
+2014-02-05T23:37:42.141064+00:00 app[web.1]:     worker.init_process()
+2014-02-05T23:37:42.141064+00:00 app[web.1]: Traceback (most recent call last):
+2014-02-05T23:37:42.141064+00:00 app[web.1]:     self.wsgi = self.app.wsgi()
+2014-02-05T23:37:42.141064+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/base.py", line 114, in wsgi
+2014-02-05T23:37:42.141909+00:00 app[web.1]: 2014-02-05 23:37:42 [7] [INFO] Worker exiting (pid: 7)
+2014-02-05T23:37:42.141241+00:00 app[web.1]:     from django.core.wsgi import get_wsgi_application
+2014-02-05T23:37:42.141241+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/util.py", line 354, in import_app
+2014-02-05T23:37:42.141241+00:00 app[web.1]:     __import__(module)
+2014-02-05T23:37:42.141064+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/workers/base.py", line 106, in init_process
+2014-02-05T23:37:42.141064+00:00 app[web.1]:     self.callable = self.load()
+2014-02-05T23:37:42.141241+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 49, in load_wsgiapp
+2014-02-05T23:37:42.141241+00:00 app[web.1]:     return util.import_app(self.app_uri)
+2014-02-05T23:37:42.141064+00:00 app[web.1]:     return self.load_wsgiapp()
+2014-02-05T23:37:42.141064+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/gunicorn/app/wsgiapp.py", line 62, in load
+2014-02-05T23:37:42.141241+00:00 app[web.1]:     from django.core.handlers.wsgi import WSGIHandler
+2014-02-05T23:37:42.141241+00:00 app[web.1]:   File "/app/eventex/wsgi.py", line 2, in <module>
+2014-02-05T23:37:42.141241+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/wsgi.py", line 11, in <module>
+2014-02-05T23:37:42.141698+00:00 app[web.1]:     if settings.DEBUG:
+2014-02-05T23:37:42.141698+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 54, in __getattr__
+2014-02-05T23:37:42.141241+00:00 app[web.1]:     from django.core.handlers import base
+2014-02-05T23:37:42.141698+00:00 app[web.1]:     from django.db import connections, transaction
+2014-02-05T23:37:42.141698+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/db/__init__.py", line 83, in <module>
+2014-02-05T23:37:42.141698+00:00 app[web.1]:     signals.request_started.connect(reset_queries)
+2014-02-05T23:37:42.140379+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py", line 12, in <module>
+2014-02-05T23:37:42.141698+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/handlers/base.py", line 12, in <module>
+2014-02-05T23:37:42.141909+00:00 app[web.1]: ImproperlyConfigured: Requested setting DEBUG, but settings are not configured. You must either define the environment variable DJANGO_SETTINGS_MODULE or call settings.configure() before accessing settings.
+2014-02-05T23:37:42.141698+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/dispatch/dispatcher.py", line 88, in connect
+2014-02-05T23:37:42.141698+00:00 app[web.1]:     % (desc, ENVIRONMENT_VARIABLE))
+2014-02-05T23:37:42.141698+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/conf/__init__.py", line 47, in _setup
+2014-02-05T23:37:42.141241+00:00 app[web.1]:   File "/app/.heroku/python/lib/python2.7/site-packages/django/core/wsgi.py", line 1, in <module>
+2014-02-05T23:37:42.141698+00:00 app[web.1]:     self._setup(name)
+2014-02-05T23:37:42.274958+00:00 app[web.1]: 2014-02-05 23:37:42 [2] [INFO] Shutting down: Master
+2014-02-05T23:37:42.275752+00:00 app[web.1]: 2014-02-05 23:37:42 [2] [INFO] Reason: Worker failed to boot.
+2014-02-05T23:37:43.788508+00:00 heroku[web.1]: Process exited with status 3
+2014-02-05T23:37:43.805108+00:00 heroku[web.1]: State changed from starting to crashed
+2014-02-05T23:37:46.016343+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path=/ host=dyesten-wttd.herokuapp.com request_id=46fdaf4a-187f-4c4d-9400-c72d955174a0 fwd="179.236.83.167" dyno= connect= service= status=503 bytes=
