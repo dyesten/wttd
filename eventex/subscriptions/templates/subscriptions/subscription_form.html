@@ -1,34 +1,57 @@
 {% extends 'base.html' %}
+{% load widget_tweaks %}
 {% block content %}
-	<h1>Formulario de Inscricao</h1>
-	<form action="." method="POST">
-		{% csrf_token %}
-		<p>
-			<label for="{{form.name.id_for_label}}">{{form.name.label}}</label>
-			{{ form.name }}
-			{{ form.name.errors }}
-		</p>
+
+	
+	
+	<div class="panel panel-default" style="display:block; margin-left:auto;margin-right:auto;width:60%;">	
+		<div class="panel-heading" style="font-weight:bold;font-size:20px;">FORMUL&Aacute;RIO DE INSCRI&Ccedil;&Atilde;O</div>
 		
-		<p>
-			<label for="{{ form.cpf.id_for_label }}">{{ form.cpf.label }}</label>
-			{{ form.cpf }}
-			{{ form.cpf.errors }}
-		</p>
+		<form action="." method="POST" style="display:block; margin-left:auto;margin-right:auto;width:50%;">
+			
+			{% csrf_token %}		
 		
-		<p>
-			<label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label>
-			{{ form.email }}
-			{{ form.email.errors }}
-		</p>
-		
-		<p>
-			<label for="{{ form.phone.id_for_label }}">{{ form.phone.label }}</label>
-			{{ form.phone }}
-			{{ form.phone.errors }}
-		</p>
-		
-		
-		<input type="submit" value="Enviar!" class="button" >
-	</form>
+			<p>
+				<div class="form-group">
+					<label for="{{form.name.id_for_label}}">{{ form.name.label|upper }}</label>
+					{{ form.name|add_class:"form-control"}}
+					{{ form.name.errors }}
+				</div>
+			</p>
+			
+			<p>
+				<div class="form-group">
+					<label for="{{ form.cpf.id_for_label }}">{{ form.cpf.label|upper }}</label>
+					{{ form.cpf|add_class:"form-control" }}
+					{{ form.cpf.errors }}
+				</div>
+			</p>
+			
+			<p>
+				<div class="form-group">
+					<label for="{{ form.email.id_for_label }}">{{ form.email.label|upper }}</label>
+					{{ form.email|add_class:"form-control" }}
+					{{ form.email.errors }}
+				</div>
+			</p>
+			
+			<p>
+				<div class="form-group">
+					<label for="{{ form.phone.id_for_label }}">{{ form.phone.label|upper }}</label>
+					{{ form.phone|add_class:"form-control" }}
+					{{ form.phone.errors }}
+				</div>
+			</p>
+			
+			<br/>
+			
+			<div class="text-center">
+				<input type="submit" value="Enviar" class="btn btn-primary">
+			</div>
+			<br/>
+			<br/>
+		</form>
+		</div>
+	</div>
 
 {% endblock content %}

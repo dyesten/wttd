@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-	<p>Parabens {{ subscription.name}}, </p>
-	<p>sua inscricao foi realizada em
-		{{ subscription.created_at|date:"d/m/Y" }}.
+	<p>Parab&eacute;ns <b>{{ subscription.name}}</b>, </p>
+	<p>sua inscri&ccedil;&atilde;o foi realizada em
+		<b>{{ subscription.created_at|date:"d/m/Y" }}</b>.
 	</p>
 	<p>Em breve, entraremos em contato pelo 
+		<b>
 		{% if subscription.phone %}
 			telefone {{ subscription.phone }}
 		{% else %}
 			e-mail {{ subscription.email }}
 		{% endif %}
+		</b>
+	</p>
+	<p>
+		<a href="{{ BASE_DIR }}/">P&aacute;gina Inicial</a>
 	</p>
 {% endblock content %}
