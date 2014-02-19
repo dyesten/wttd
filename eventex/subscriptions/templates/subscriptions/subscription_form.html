@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
+<script>	
+	/*$(document).ready(function(){
+		alert('aaaa');
+		//$('.telefone').mask('(00)0000-0000');
+		//$('.cpf').mask('000.000.000-00', {reverse: true});
+	});
+	*/
+</script>
 {% load widget_tweaks %}
-{% block content %}
-
-	
+{% block content %}	
 	
 	<div class="panel panel-default" style="display:block; margin-left:auto;margin-right:auto;width:60%;">	
 		<div class="panel-heading" style="font-weight:bold;font-size:20px;">FORMUL&Aacute;RIO DE INSCRI&Ccedil;&Atilde;O</div>
@@ -22,7 +28,7 @@
 			<p>
 				<div class="form-group">
 					<label for="{{ form.cpf.id_for_label }}">{{ form.cpf.label|upper }}</label>
-					{{ form.cpf|add_class:"form-control" }}
+					{{ form.cpf|add_class:"form-control cpf" }}
 					{{ form.cpf.errors }}
 				</div>
 			</p>
@@ -38,7 +44,7 @@
 			<p>
 				<div class="form-group">
 					<label for="{{ form.phone.id_for_label }}">{{ form.phone.label|upper }}</label>
-					{{ form.phone|add_class:"form-control" }}
+					{{ form.phone|add_class:"form-control telefone" }}
 					{{ form.phone.errors }}
 				</div>
 			</p>

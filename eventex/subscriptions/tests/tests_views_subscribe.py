@@ -1,11 +1,12 @@
 # coding: utf-8
 from django.test import TestCase
+from django.core.urlresolvers import reverse as r
 from eventex.subscriptions.forms import SubscriptionForm
 from eventex.subscriptions.models import Subscription
 
 class SubscribeTest(TestCase):
 	def setUp(self):
-		self.resp = self.client.get('/inscricao/')
+		self.resp = self.client.get(r('subscriptions:subscribe'))
 	
 	def test_get(self):
 		self.assertEqual(200, self.resp.status_code)
@@ -31,7 +32,7 @@ class SubscribePostTest(TestCase):
 	def setUp(self):
 		data = dict(name='Dyesten Paulon', cpf='12345678901',
 					email='dyesten.pt@gmail.com', phone='31-88996655')
-		self.resp = self.client.post('/inscricao/', data)
+		self.resp = self.client.post(r('subscriptions:subscribe'), data)
 		
 	def test_post(self):
 		self.assertEqual(302, self.resp.status_code)
@@ -43,7 +44,7 @@ class SubscribePostTest(TestCase):
 class SubscribeInvalidPostTest(TestCase):
 	def setUp(self):
 		data = dict(name='Dyesten Paulon', cpf='123456789012', email='dyesten.pt@gmail.com', phone='31-88996655')
-		self.resp = self.client.post('/inscricao/', data)
+		self.resp = self.client.post(r('subscriptions:subscribe'), data)
 		
 	def test_post(self):		
 		self.assertEqual(200, self.resp.status_code)
