@@ -8,3 +8,4 @@ django-decouple==2.1
 django-widget-tweaks
 pytz
 South==0.8.4
+mock==1.0.1
