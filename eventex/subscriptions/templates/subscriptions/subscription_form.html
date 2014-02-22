@@ -16,7 +16,7 @@
 		<form action="." method="POST" style="display:block; margin-left:auto;margin-right:auto;width:50%;">
 			
 			{% csrf_token %}		
-		
+			{{ form.non_field_errors }}
 			<p>
 				<div class="form-group">
 					<label for="{{form.name.id_for_label}}">{{ form.name.label|upper }}</label>

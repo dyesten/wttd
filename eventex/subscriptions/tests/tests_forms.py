@@ -19,12 +19,20 @@ class SubscribeFormTest(TestCase):
 	def test_email_is_optional(self):
 		form = self.make_validated_forms(email="")
 		self.assertFalse(form.errors)
+	
+	def test_name_must_be_capitalized(self):
+		form = self.make_validated_forms(name='DYESTEN paulon')
+		self.assertEqual('Dyesten Paulon', form.cleaned_data['name'])
 
+	def test_must_inform_email_or_phone(self):
+		form = self.make_validated_forms(email='', phone_0='', phone_1='')
+		self.assertItemsEqual(['__all__'], form.errors)
+		
 	def make_validated_forms(self, **kwargs):
-		data = dict(name='Dyesten Paulon', email='dyesten.pt@gmail.com', cpf='12345678901', phone='21-96186180')
+		data = dict(name='Dyesten Paulon', email='dyesten.pt@gmail.com', cpf='12345678901', phone_0='21', phone_1='96186180')
 		data.update(kwargs)
 		form = SubscriptionForm(data)
 		form.is_valid()
 
 		return form
-		
+	
