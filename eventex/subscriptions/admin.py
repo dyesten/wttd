@@ -14,6 +14,7 @@ class SubscriptionAdmin(admin.ModelAdmin):
 	list_per_page = 20
 	#list_max_show_all = 3
 	
+	
 	def subscription_today(self, obj):
 		return obj.created_at.date() == datetime.today().date()
 	

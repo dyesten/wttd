@@ -6,11 +6,30 @@ from django.core.exceptions import ValidationError
 from django.core.validators import EMPTY_VALUES
 from eventex.subscriptions.models import Subscription
 
-def CPFValidator(value):
+def validar_cpf(cpf):
+    digitos = [int(c) for c in cpf if c.isdigit()]
+    if len(digitos) == 11:
+        a,b,c,d,e,f,g,h,i,j,k = digitos
+        numeros = [a,b,c,d,e,f,g,h,i]
+        r = range(10, 1, -1)
+        soma = sum([x * y for x, y in zip(numeros, r)])
+        resto = soma % 11
+        dv1 = (11 - resto if 11 - resto < 10 else 0)
+        numeros = [a,b,c,d,e,f,g,h,i,dv1]
+        r = range(11, 1, -1)
+        soma = sum([x*y for x, y in zip(numeros, r)])
+        resto = soma % 11
+        dv2 = (11 - resto if 11 - resto < 10 else 0)
+        return dv1 == j and dv2 == k
+    return False
+
+def CPFValidator(value):	
 	if not value.isdigit():
-		raise ValidationError(_(u'CPF deve conter apenas números'))
+		raise ValidationError(_(u'CPF deve conter apenas números.'))
 	if len(value)!=11:
-		raise ValidationError(_(u'CPF deve ter 11 números'))
+		raise ValidationError(_(u'CPF deve ter 11 números.'))
+	if not validar_cpf(value):
+		raise ValidationError(_(u'CPF inválido.'))
 
 class PhoneWidget(forms.MultiWidget):		
 	def __init__(self, attrs=None):

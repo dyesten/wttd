@@ -13,9 +13,15 @@ class SubscribeFormTest(TestCase):
 		self.assertItemsEqual(['cpf'], form.errors)
 
 	def test_cpf_has_11_digits(self):				
-		form = self.make_validated_forms(cpf='1234')
+		form = self.make_validated_forms(cpf='1234')		
 		self.assertItemsEqual(['cpf'], form.errors)
-
+	
+	#test com erro	
+	def test_cpf_is_valid(self):
+		form = self.make_validated_forms(cpf='12345678901')		
+		self.assertItemsEqual(['cpf'], form.errors)
+	
+	
 	def test_email_is_optional(self):
 		form = self.make_validated_forms(email="")
 		self.assertFalse(form.errors)
