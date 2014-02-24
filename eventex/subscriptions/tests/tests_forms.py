@@ -19,7 +19,7 @@ class SubscribeFormTest(TestCase):
 	#test com erro	
 	def test_cpf_is_valid(self):
 		form = self.make_validated_forms(cpf='12345678901')		
-		self.assertItemsEqual(['cpf'], form.errors)
+		self.assertFalse(form.errors)
 	
 	
 	def test_email_is_optional(self):
