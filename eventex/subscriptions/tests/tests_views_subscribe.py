@@ -30,7 +30,7 @@ class SubscribeTest(TestCase):
 	
 class SubscribePostTest(TestCase):
 	def setUp(self):
-		data = dict(name='Dyesten Paulon', cpf='12345678901',
+		data = dict(name='Dyesten Paulon', cpf='11144477735',
 					email='dyesten.pt@gmail.com', phone='31-88996655')
 		self.resp = self.client.post(r('subscriptions:subscribe'), data)
 		

@@ -17,9 +17,12 @@ class SubscribeFormTest(TestCase):
 		self.assertItemsEqual(['cpf'], form.errors)
 	
 	#test com erro	
-	def test_cpf_is_valid(self):
-		form = self.make_validated_forms(cpf='12345678901')		
-		self.assertFalse(form.errors)
+	def test_cpf_is_not_valid(self):
+		form = self.make_validated_forms(cpf='12345678901')
+		#self.assertFalse(form.errors)
+		self.assertItemsEqual(['cpf'], form.errors)
+
+
 	
 	
 	def test_email_is_optional(self):
@@ -35,7 +38,7 @@ class SubscribeFormTest(TestCase):
 		self.assertItemsEqual(['__all__'], form.errors)
 		
 	def make_validated_forms(self, **kwargs):
-		data = dict(name='Dyesten Paulon', email='dyesten.pt@gmail.com', cpf='12345678901', phone_0='21', phone_1='96186180')
+		data = dict(name='Dyesten Paulon', email='dyesten.pt@gmail.com', cpf='11144477735', phone_0='31', phone_1='88994477')
 		data.update(kwargs)
 		form = SubscriptionForm(data)
 		form.is_valid()
