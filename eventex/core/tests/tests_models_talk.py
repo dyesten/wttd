@@ -1,6 +1,6 @@
 # coding: latin
 from django.test import TestCase
-from eventex.core.models import Talk
+from eventex.core.models import Talk, Course
 from eventex.core.managers import PeriodManager
 
 class TalkModelTest(TestCase):
@@ -19,3 +19,22 @@ class TalkModelTest(TestCase):
 	
 	def test_period_manager(self):
 		self.assertIsInstance(Talk.objects, PeriodManager)
+		
+class CourseModelTest(TestCase):
+	def setUp(self):
+		self.course = Course.objects.create(title=u'Tutorial Django', description=u'descricao do curso',
+											start_time = '10:00', slots=20)
+	
+	def test_create(self):
+		self.assertEqual(1, self.course.pk)
+	
+	def test_unicode(self):
+		self.assertEqual(u'Tutorial Django', unicode(self.course))
+	
+	def test_speakers(self):
+		self.course.speakers.create(name='Dyesten Paulon', slug='dyesten-paulon',
+									url='http://dyestenpaulon.net')
+		self.assertEqual(1, self.course.speakers.count())
+	
+	def test_period_manager(self):
+		self.assertIsInstance(Course.objects, PeriodManager)
