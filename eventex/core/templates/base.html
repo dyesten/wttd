@@ -46,7 +46,7 @@
           <ul class="nav navbar-nav">
             <li class="home/"><a href="{{ BASE_DIR }}/">Home</a></li>
 			<li><a href="{{ BASE_DIR }}{% url 'subscriptions:subscribe' %}">Inscri&ccedil;&atilde;o</a></li>
-            <li><a href="#about">Sobre</a></li>
+            <li><a href="{{ BASE_DIR }}{% url 'core:talk_list' %}">Palestras</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
