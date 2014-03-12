@@ -30,8 +30,8 @@ class SubscribeFormTest(TestCase):
 		self.assertFalse(form.errors)
 	
 	def test_name_must_be_capitalized(self):
-		form = self.make_validated_forms(name='DYESTEN paulon')
-		self.assertEqual('Dyesten Paulon', form.cleaned_data['name'])
+		form = self.make_validated_forms(name='DYESTEN dE paulon')
+		self.assertEqual('Dyesten de Paulon', form.cleaned_data['name'])
 
 	def test_must_inform_email_or_phone(self):
 		form = self.make_validated_forms(email='', phone_0='', phone_1='')

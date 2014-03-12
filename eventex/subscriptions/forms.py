@@ -1,9 +1,12 @@
 # -*- coding: latin-1 -*-
 
+from nameparser import HumanName
+
 from django import forms
 from django.utils.translation import ugettext as _
 from django.core.exceptions import ValidationError
 from django.core.validators import EMPTY_VALUES
+
 from eventex.subscriptions.models import Subscription
 
 def validar_cpf(cpf):
@@ -70,10 +73,13 @@ class SubscriptionForm(forms.ModelForm):
 		self.fields['cpf'].validators.append(CPFValidator)
 	
 	def clean_name(self):
-		name = self.cleaned_data['name']
-		words = map(lambda w: w.capitalize(), name.split())		
-		capitalized_name = ' '.join(words)
-		return capitalized_name
+		name = self.cleaned_data['name'].lower()
+		name = HumanName(name)
+		name.capitalize()
+		return unicode(name)
+		#words = map(lambda w: w.capitalize(), name.split())		
+		#capitalized_name = ' '.join(words)
+		#return capitalized_name
 	
 	def clean(self):
 		super(SubscriptionForm, self).clean()
